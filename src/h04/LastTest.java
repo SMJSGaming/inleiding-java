@@ -37,3 +37,4 @@ public class LastTest extends Applet {
         g.drawString("Cirkel",515,255);
     }
 }
+//I know this can be made more efficient but I didn't really mind it being messy
