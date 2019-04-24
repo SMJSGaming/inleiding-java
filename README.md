@@ -22,7 +22,7 @@ public class LastTest extends Applet {
 
     public void paint(Graphics g) {
         //part 1
-        g.drawLine(10,20,200,20);
+        g.drawLine(10,20,210,20);
         g.drawString("Lijn",95,35);
         g.drawRect(10,40,200,90);
         g.drawString("Rechthoek",80,145);
