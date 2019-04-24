@@ -10,7 +10,7 @@ public class LastTest extends Applet {
 
     public void paint(Graphics g) {
         //part 1
-        g.drawLine(10,20,200,20);
+        g.drawLine(10,20,210,20);
         g.drawString("Lijn",95,35);
         g.drawRect(10,40,200,90);
         g.drawString("Rechthoek",80,145);
@@ -37,3 +37,4 @@ public class LastTest extends Applet {
         g.drawString("Cirkel",515,255);
     }
 }
+//I know this can be made more efficient but I didn't really mind it being messy
