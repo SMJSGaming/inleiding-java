@@ -1,8 +1,8 @@
 # Module Java
 
-Forked project for further coding.
-Software:
--Git
+Forked project for further coding.  
+Software:  
+-Git  
 -InelliJ IDEA
 
 # 
