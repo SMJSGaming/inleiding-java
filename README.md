@@ -1,11 +1,11 @@
 # Module Java
 
-Forked project for further coding.
-Software:
--Git
+Forked project for further coding.  
+Software:  
+-Git  
 -InelliJ IDEA
 
-----------------------------------------
+# 
 Main codes:
 
 **h04**
@@ -50,7 +50,7 @@ public class LastTest extends Applet {
     }
 }
 ```
-
+#
 **h06**
 ```java
 package h06;
@@ -79,7 +79,7 @@ public class LastTest extends Applet {
     }
 }
 ```
-
+#
 **h08**
 ```java
 package h08;
@@ -167,4 +167,155 @@ public class LastTest extends Applet {
             repaint();
         }
     }
-}```
+}
+```
+#
+**h10**
+```java
+package h10;
+
+import java.awt.*;
+import java.applet.*;
+import java.awt.event.*;
+
+public class GradeScore extends Applet {
+    TextField tekstvak;
+    Button knop;
+    String text;
+    double score;
+
+    public void init() {
+        tekstvak = new TextField("", 20);
+        knop = new Button("Ok");
+        knop.addActionListener( new KnopListener() );
+        add(knop);
+        add(tekstvak);
+        text = "op dit moment, niks";
+    }
+
+    public void paint(Graphics g) {
+        if (text == "Ongeldig cijfer!") {
+            g.drawString("" + text, 50, 70);
+        } else {
+            g.drawString("Jouw Score is: " + text, 50, 70);
+        }
+    }
+
+
+    class KnopListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            String s = tekstvak.getText();
+            score = Double.parseDouble( s );
+            if (score > 10){
+                text = "Ongeldig cijfer!";
+            }
+            if (score <= 3) {
+                text = "slecht";
+            }
+            if (score == 4){
+                text = "onvoldoende";
+            }
+            if (score == 5){
+                text = "matig";
+            }
+            if (score == 6 || score == 7){
+                text = "voldoende";
+            }
+            if (score >= 8 && score <= 10){
+                text = "goed";
+            }
+            repaint();
+        }
+    }
+}
+```
+#
+**h11**
+```java
+package h11;
+
+import java.awt.*;
+import java.applet.*;
+import java.awt.event.*;
+
+public class TablesV1 extends Applet {
+    TextField tekstvak;
+    Button knop;
+    int table, counter, output, ready, y;
+
+    public void init() {
+        tekstvak = new TextField("", 8);
+        knop = new Button("Ok");
+        knop.addActionListener(new KnopListener());
+        add(tekstvak);
+        add(knop);
+    }
+
+    public void paint(Graphics g) {
+        y = 50;
+        if(ready == 1) {
+            counter = 1;
+            while (counter <= 10) {
+                output = table * counter;
+                g.drawString("" + counter + " x " + table + " = " + output, 145, y);
+                y += 15;
+                counter++;
+            }
+        }
+    }
+
+    class KnopListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            String s = tekstvak.getText();
+            table = Integer.parseInt(s);
+            if (s != "") {
+                ready = 1;
+            }
+            tekstvak.setText("");
+            repaint();
+        }
+    }
+}
+```
+  
+```java
+package h11;
+
+import java.awt.*;
+import java.applet.*;
+import java.awt.event.*;
+
+public class TablesV2 extends Applet {
+    Button knop;
+    int counter, output, y;
+    int table = 1;
+
+    public void init() {
+        knop = new Button("Ok");
+        knop.addActionListener(new KnopListener());
+        add(knop);
+    }
+
+    public void paint(Graphics g) {
+        y = 50;
+        counter = 1;
+        while (counter <= 10) {
+            output = table * counter;
+            g.drawString("" + counter + " x " + table + " = " + output, 175, y);
+            y += 15;
+            counter++;
+        }
+    }
+
+    class KnopListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            if (table != 10) {
+                table++;
+            } else {
+                table = 1;
+            }
+            repaint();
+        }
+    }
+}
+```
